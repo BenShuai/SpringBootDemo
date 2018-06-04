@@ -1,7 +1,11 @@
 package com.example.demo.controller;
 
+import com.alibaba.fastjson.JSONObject;
+import com.example.demo.config.BaseConfig;
+import com.example.demo.entity.JzhApiRequests;
 import com.example.demo.entity.Messages;
 import com.example.demo.entity.User;
+import com.example.demo.mapper.JzhApiRequestsDao;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.task.AnsyncTask;
 import com.example.demo.util.MongoDbUser;
@@ -9,6 +13,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,11 +21,13 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
 
 
 @Api(value="/Sample",description="公共信息查询类")
 @RestController
 @RequestMapping(value="/Sample")
+@EnableConfigurationProperties({BaseConfig.class})
 public class SampleController {
     //http://localhost:8085/swagger-ui.html
 
@@ -34,6 +41,9 @@ public class SampleController {
 
     @Autowired
     private StringRedisTemplate stringRedisTemplate;//直接操作redis的类，进行字符串的存取
+
+    @Autowired
+    private JzhApiRequestsDao jzhApiRequestsDao;
 
 //    @Autowired
 //    private RedisTemplate<String, User> redisTemplateUser;//使用User对象的方式去操作redis
@@ -122,4 +132,31 @@ public class SampleController {
         }catch (Exception e){}
         return "success";
     }
+
+
+    /**
+     * 保存请求信息
+     * @param param
+     * @param jzhApiRequests
+     * @param methodName
+     * @param requestNo
+     * @return
+     * @throws Exception
+     */
+    public int insertRequestInfo(String param, JzhApiRequests jzhApiRequests, String methodName, String requestNo)throws Exception{
+        Date date = new Date();
+        String timestamp = String.valueOf(date.getTime());
+        jzhApiRequests.setCreatedAt(Integer.valueOf(timestamp.substring(0,timestamp.length()-3)));
+        jzhApiRequests.setSeqNo(requestNo);
+        jzhApiRequests.setRequestUri(methodName);
+        jzhApiRequests.setRequestContent(param);
+        jzhApiRequests.setRetCode("0");
+        JSONObject node = new JSONObject();
+        node.put("respone", "none");
+        jzhApiRequests.setResponseContent(node.toJSONString());
+        int result = jzhApiRequestsDao.insert(jzhApiRequests);
+        return result;
+    }
+
+
 }
