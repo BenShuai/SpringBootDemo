@@ -3,6 +3,9 @@ package com.example.demo.task;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
+/**
+ * 异步执行方法
+ */
 @Component
 public class AnsyncTask {
     @Async
