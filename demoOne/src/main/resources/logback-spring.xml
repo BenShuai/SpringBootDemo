@@ -3,9 +3,9 @@
     <!-- 文件输出格式 -->
     <property name="PATTERN" value="%-12(%d{yyyy-MM-dd HH:mm:ss.SSS}) |-%-5level [%thread] %c [%L] -| %msg%n" />
     <!-- dev文件路径 -->
-    <property name="DEV_FILE_PATH" value="z:/logs/demoOne.log" />
+    <property name="DEV_FILE_PATH" value="d:/logs/demoOne.log" />
     <!-- test文件路径 -->
-    <property name="TEST_FILE_PATH" value="z:/logs/demoOneTest.log" />
+    <property name="TEST_FILE_PATH" value="d:/logs/demoOneTest.log" />
     <!-- pro文件路径 -->
     <property name="PRO_FILE_PATH" value="/opt/test/logs/demoOne.log" />
 
