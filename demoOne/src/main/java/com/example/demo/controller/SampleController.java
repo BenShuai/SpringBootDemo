@@ -4,6 +4,8 @@ import com.example.demo.config.BaseConfig;
 import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
 import com.example.demo.task.AnsyncTask;
+import com.example.demo.util.ErrorCode;
+import com.example.demo.vo.ApiResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -108,21 +110,32 @@ public class SampleController {
 
     @ApiOperation(value="调用异步执行方法", notes="调用异步执行方法")
     @RequestMapping(value="/AnsyncPlay", method=RequestMethod.POST)
-    public String AnsyncPlay() {
+    public ApiResult AnsyncPlay() {
+        ApiResult apiResult = new ApiResult(ErrorCode.ERROR.getStatus(),ErrorCode.ERROR.getMsg(),"查询富友账户列表失败");
         try {
             ansyncTask.Task1();
             ansyncTask.Task2();
             ansyncTask.Task3();
-        }catch (Exception e){}
-        return "success";
+
+            return new ApiResult(ErrorCode.SUCCESS.getStatus(),ErrorCode.SUCCESS.getMsg(),"success");
+        }catch (Exception e){
+            apiResult.setData(e.getMessage());
+            return apiResult;
+        }
     }
 
 
     @ApiOperation(value="返回字符串", notes="返回字符串")
     @RequestMapping(value="/getCall", method= RequestMethod.GET)
-    public List<Map<String,String>> getCall(HttpServletRequest request, HttpServletResponse response) {
-        List<Map<String,String>> queryBas=userService.queryBa("33,42");
-        return queryBas;
+    public ApiResult getCall(HttpServletRequest request, HttpServletResponse response) {
+        ApiResult apiResult = new ApiResult(ErrorCode.ERROR.getStatus(),ErrorCode.ERROR.getMsg(),"查询富友账户列表失败");
+        try {
+            List<Map<String, String>> queryBas = userService.queryBa("33,42");
+            return new ApiResult(ErrorCode.SUCCESS.getStatus(),ErrorCode.SUCCESS.getMsg(),queryBas);
+        }catch (Exception e){
+            apiResult.setData(e.getMessage());
+            return apiResult;
+        }
     }
 
 
