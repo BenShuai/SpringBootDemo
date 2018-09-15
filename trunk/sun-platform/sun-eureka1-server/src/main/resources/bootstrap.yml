@@ -1,0 +1,4 @@
+spring.profiles.active: test
+server.port: 8761
+# spring
+spring.application.name: spring-cloud-server-01

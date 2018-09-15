@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+	   <groupId>com.it.sun</groupId>
+	   <artifactId>sun-parent</artifactId>
+	   <version>1.1.1-SNAPSHOT</version>
+	</parent>
+    <artifactId>sun-platform</artifactId>
+    <packaging>pom</packaging>
+    <version>1.1.1-SNAPSHOT</version>
+    <properties>
+    	<module.version>1.1.1-SNAPSHOT</module.version>
+    </properties>
+
+    <modules>
+        <module>sun-eureka1-server</module>
+        <module>sun-eureka2-server</module>
+        <module>sun-eureka3-server</module>
+        <module>sun-zuul-service</module>
+    </modules>
+</project>

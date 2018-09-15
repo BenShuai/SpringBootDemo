@@ -1,0 +1,56 @@
+spring:
+  application:
+    name: py-zuul-service
+server:
+  port: 9876
+
+
+logging:
+  level:
+    root: info
+    com.cloud: debug
+  file: logs/${spring.application.name}.log
+zuul:
+  ignored-services: '*'
+  sensitiveHeaders:
+  routes:
+    oauth:
+      path: /api-oauth/**
+      serviceId: py-oauth-center
+    api-web:
+      path: /api-web/**
+      serviceId: py-admin-web
+    file:
+      path: /api-file/**
+      serviceId: py-file-center
+    sms:
+      path: /api-thrid/**
+      serviceId: py-thrid-service
+  max:
+    host:
+      connections: 500
+  host:
+    connect-timeout-millis: 60000
+    socket-timeout-millis: 60000
+  add-proxy-headers: true
+  ribbon:
+    eager-load:
+      enabled: true
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
