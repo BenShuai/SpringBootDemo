@@ -1,3 +1,25 @@
+#### sun-parent:
+
+包版本管理【基础引用】
+
+#### sun-common：
+
+框架辅助类和工具类等封装，以及一些基础依赖
+
+#### sun-bean：
+
+业务实体类，service类，mybates的mapper类等
+
+#### sun-web：
+
+controller类，任务类，配置类等
+
+#### sun-platform:
+
+服务注册和发现的工程eureka+zuul
+
+
+
 ## 框架中加入进去的包：
 
 	mysql-connector-java		连接mysql的驱动
