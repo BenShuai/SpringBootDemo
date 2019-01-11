@@ -1,4 +1,4 @@
-package com.it.common.redis;
+package com.it.common.base.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;

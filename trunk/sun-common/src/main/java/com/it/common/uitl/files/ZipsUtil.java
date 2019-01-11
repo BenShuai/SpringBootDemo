@@ -11,13 +11,7 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 
 public class ZipsUtil {
-	
-//	public static void main(String args[]){
-//		   String filePath ="d:\\test";
-//		   String descDir ="d:\\test.zip";
-////		   zipFiles(  filePath,   descDir);
-//		   unZipFiles("F:\\1\\场次_1_国家英语等级考试一级-王渤测试卷_20160714231.zip", "F:\\1");
-//	}
+
 	public static void zipFiles(String filePath, String descDir)
 	{
 		ZipOutputStream zos = null;

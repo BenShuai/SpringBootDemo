@@ -4,7 +4,7 @@ import com.example.demo.config.BaseConfig;
 import com.it.sun.entity.User;
 import com.it.sun.service.UserService;
 import com.it.sun.task.AnsyncTask;
-import com.it.common.uitl.tool.ErrorCode;
+import com.it.common.uitl.ErrorCode;
 import com.it.sun.vo.ApiResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

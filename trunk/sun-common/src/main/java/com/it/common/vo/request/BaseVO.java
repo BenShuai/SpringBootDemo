@@ -1,7 +1,9 @@
-package com.it.common.vo.ty.req;
+package com.it.common.vo.request;
 
 
-public class BaseVO extends ParentVO{
+import java.io.Serializable;
+
+public class BaseVO implements Serializable {
 	
 	/** 请求编号   kft20130111142400*/
 	private String reqNo ;

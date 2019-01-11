@@ -1,4 +1,4 @@
-package com.it.common.base.vo.request;
+package com.it.common.vo.request;
 
 public class PageVO {
 	/**

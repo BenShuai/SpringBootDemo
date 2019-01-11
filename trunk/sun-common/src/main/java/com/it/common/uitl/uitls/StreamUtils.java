@@ -14,10 +14,7 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 
 /**
- * 
- * @author Andy.Chen
- * @mail Chenjunjun.ZJ@gmail.com
- * 
+ * 流转换
  */
 public class StreamUtils {
 
@@ -203,7 +200,7 @@ public class StreamUtils {
 	/**
 	 * 根据文件路径创建文件输入流处理
 	 * 以字节为单位（非 unicode ）
-	 * @param path
+	 * @param filepath
 	 * @return
 	 */
 	public static FileInputStream getFileInputStream(String filepath) {
@@ -219,7 +216,7 @@ public class StreamUtils {
 	/**
 	 * 根据文件对象创建文件输入流处理
 	 * 以字节为单位（非 unicode ）
-	 * @param path
+	 * @param file
 	 * @return
 	 */
 	public static FileInputStream getFileInputStream(File file) {
@@ -252,7 +249,7 @@ public class StreamUtils {
 	/**
 	 * 根据文件路径创建文件输出流处理
 	 * 以字节为单位（非 unicode ）
-	 * @param path
+	 * @param filepath
 	 * @param append true:文件以追加方式打开,false:则覆盖原文件的内容
 	 * @return
 	 */

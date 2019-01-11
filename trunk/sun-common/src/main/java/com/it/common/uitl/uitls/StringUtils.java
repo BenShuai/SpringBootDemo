@@ -1,23 +1,12 @@
-/**
- * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.it.common.uitl.uitls;
 
 import java.io.UnsupportedEncodingException;
-import java.util.List;
-import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-import org.apache.commons.lang3.StringEscapeUtils;
-
-
-
 /**
- * 字符串工具类, 继承org.apache.commons.lang33.StringUtils类
- * @author ThinkGem
- * @version 2013-05-22
+ * 字符串工具类
  */
 public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	
@@ -42,11 +31,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     }
     
     /**
-     * Checks if string is null or empty.
-     * 
-     * @param value
-     *            The string to be checked
-     * @return True if string is null or empty, otherwise false.
+     * 检查字符串是否为null和""
      */
     public static boolean isEmpty(final String value) {
         return value == null || value.trim().length() == 0
@@ -54,8 +39,8 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     }
     
     /**
-     * 转换为字节数组
-     * @param str
+     * 字节转字符串
+     * @param bytes
      * @return
      */
     public static String toString(byte[] bytes){
@@ -96,34 +81,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 		String s = m.replaceAll("");
 		return s;
 	}
-	
-	/**
-	 * 替换为手机识别的HTML，去掉样式及属性，保留回车。
-	 * @param html
-	 * @return
-	 */
-	public static String replaceMobileHtml(String html){
-		if (html == null){
-			return "";
-		}
-		return html.replaceAll("<([a-z]+?)\\s+?.*?>", "<$1>");
-	}
-	
-	/**
-	 * 替换为手机识别的HTML，去掉样式及属性，保留回车。
-	 * @param txt
-	 * @return
-	 */
-	public static String toHtml(String txt){
-		if (txt == null){
-			return "";
-		}
-		return replace(replace(Encodes.escapeHtml(txt), "\n", "<br/>"), "\t", "&nbsp; &nbsp; ");
-	}
 
-
-	
-	
 	/**
 	 * 转换为Double类型
 	 */

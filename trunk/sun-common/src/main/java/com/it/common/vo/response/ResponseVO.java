@@ -1,31 +1,33 @@
-package com.it.common;
+package com.it.common.vo.response;
+
+import com.it.common.uitl.ErrorCode;
 
 /**
  * 前端返回数据类
  *
  */
-public class Response {
+public class ResponseVO {
 
 	private int code;
 	private String message;
 	private Object body;
 
-	public static Response ok() {
-		Response response = new Response();
+	public static ResponseVO ok() {
+		ResponseVO response = new ResponseVO();
 		response.setCode(ErrorCode.SUCCESS.getStatus());
 		response.setMessage("成功");
 		return response;
 	}
 
-	public static Response ok(String message) {
-		Response response = new Response();
+	public static ResponseVO ok(String message) {
+		ResponseVO response = new ResponseVO();
 		response.setCode(ErrorCode.SUCCESS.getStatus());
 		response.setMessage(message);
 		return response;
 	}
 
-	public static Response error(int code, String message) {
-		Response response = new Response();
+	public static ResponseVO error(int code, String message) {
+		ResponseVO response = new ResponseVO();
 		response.setCode(code);
 		response.setMessage(message);
 		return response;
