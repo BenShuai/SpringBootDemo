@@ -9,7 +9,7 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 /**
- * Swagger插件的配置类，开发环境保留，正式生产的时候，可以 去掉配置，并且将war包中webapp里面的/sw/文件夹删除
+ * Swagger插件的配置类，开发环境保留，正式生产的时候，去掉配置
  * @author sunshuai
  * 2016-10-20
  */

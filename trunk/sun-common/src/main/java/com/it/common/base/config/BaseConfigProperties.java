@@ -5,17 +5,15 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-@PropertySource(value = "classpath:redis.properties")
-@ConfigurationProperties(prefix = "redis")
-public class RedisConfigProperties {
-    //   主机地址
+@PropertySource(value = "classpath:base.properties")
+@ConfigurationProperties(prefix = "base")
+public class BaseConfigProperties {
+    //主机地址
     public String host;
     //端口
     public int port;
     //密码没有不填写
     public String password;
-    // Redis数据库索引（默认为0）
-
     public int database;
     //最大活跃连接
     public int maxActive;

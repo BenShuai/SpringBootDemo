@@ -1,13 +1,13 @@
-package com.example.demo.config;
+package com.it.sun.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "ty.fy")
+@ConfigurationProperties(prefix = "abc.as")
 public class BaseConfig {
-    private String url;//连接的富友的根地址
-    private String mchnt_cd;     //商户代码
-    private String ver;//富友接口固定的文档版本号
-    private String page_notify_url;//金账户要调用的一个根地址
+    private String url;//连接的根地址
+    private String mchnt_cd;//编号
+    private String ver;//版本号
+    private String page_notify_url;//调用的一个根地址
 
     public String getUrl() {
         return url;

@@ -3,11 +3,11 @@
     <!-- 文件输出格式 -->
     <property name="PATTERN" value="%-12(%d{yyyy-MM-dd HH:mm:ss.SSS}) |-%-5level [%thread] %c [%L] -| %msg%n" />
     <!-- dev文件路径 -->
-    <property name="DEV_FILE_PATH" value="d:/logs/demoOne.log" />
+    <property name="DEV_FILE_PATH" value="d:/logs/demoLog.log" />
     <!-- test文件路径 -->
-    <property name="TEST_FILE_PATH" value="d:/logs/demoOneTest.log" />
+    <property name="TEST_FILE_PATH" value="d:/logs/demoLog.log" />
     <!-- pro文件路径 -->
-    <property name="PRO_FILE_PATH" value="/opt/test/logs/demoOne.log" />
+    <property name="PRO_FILE_PATH" value="/opt/logs/demoLog.log" />
 
     <!-- 开发环境 -->
     <springProfile name="dev">
@@ -15,6 +15,7 @@
         <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
             <encoder>
                 <pattern>${PATTERN}</pattern>
+                <charset>UTF-8</charset>
             </encoder>
         </appender>
 
@@ -23,10 +24,19 @@
             <file>${DEV_FILE_PATH}</file>
             <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
                 <!-- 文件名称 -->
-                <fileNamePattern>${DEV_FILE_PATH}/info.%d{yyyy-MM-dd}.log</fileNamePattern>
-                <!-- 文件最大保存历史数量 -->
-                <MaxHistory>100</MaxHistory>
+                <fileNamePattern>${DEV_FILE_PATH}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+                <!-- 文件最大保存天数 -->
+                <MaxHistory>30</MaxHistory>
+                <timeBasedFileNamingAndTriggeringPolicy  class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                    <!-- maxFileSize:这是活动文件的大小，默认值是10MB -->
+                    <maxFileSize>100MB</maxFileSize>
+                </timeBasedFileNamingAndTriggeringPolicy>
             </rollingPolicy>
+            <encoder>
+                <!-- pattern节点，用来设置日志的输入格式 -->
+                <pattern>%d %p (%file:%line\)- %m%n</pattern>
+                <charset>UTF-8</charset>
+            </encoder>
             <layout class="ch.qos.logback.classic.PatternLayout">
                 <pattern>${PATTERN}</pattern>
             </layout>
@@ -46,14 +56,24 @@
             <file>${TEST_FILE_PATH}</file>
             <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
                 <!-- 文件名称 -->
-                <fileNamePattern>${TEST_FILE_PATH}/info.%d{yyyy-MM-dd}.log</fileNamePattern>
-                <!-- 文件最大保存历史数量 -->
-                <MaxHistory>100</MaxHistory>
+                <fileNamePattern>${TEST_FILE_PATH}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+                <!-- 文件最大保存天数 -->
+                <MaxHistory>30</MaxHistory>
+                <timeBasedFileNamingAndTriggeringPolicy  class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                    <!-- maxFileSize:这是活动文件的大小，默认值是10MB -->
+                    <maxFileSize>100MB</maxFileSize>
+                </timeBasedFileNamingAndTriggeringPolicy>
             </rollingPolicy>
+            <encoder>
+                <!-- pattern节点，用来设置日志的输入格式 -->
+                <pattern>%d %p (%file:%line\)- %m%n</pattern>
+                <charset>UTF-8</charset>
+            </encoder>
             <layout class="ch.qos.logback.classic.PatternLayout">
                 <pattern>${PATTERN}</pattern>
             </layout>
         </appender>
+        <logger name="com.light.springboot" level="debug" />
         <root level="info">
             <appender-ref ref="TEST-FILE" />
         </root>
@@ -64,13 +84,25 @@
         <appender name="PROD_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
             <file>${PRO_FILE_PATH}</file>
             <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-                <fileNamePattern>${PRO_FILE_PATH}/warn.%d{yyyy-MM-dd}.log</fileNamePattern>
-                <MaxHistory>100</MaxHistory>
+                <!-- 文件名称 -->
+                <fileNamePattern>${PRO_FILE_PATH}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+                <!-- 文件最大保存天数 -->
+                <MaxHistory>30</MaxHistory>
+                <timeBasedFileNamingAndTriggeringPolicy  class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                    <!-- maxFileSize:这是活动文件的大小，默认值是10MB -->
+                    <maxFileSize>100MB</maxFileSize>
+                </timeBasedFileNamingAndTriggeringPolicy>
             </rollingPolicy>
+            <encoder>
+                <!-- pattern节点，用来设置日志的输入格式 -->
+                <pattern>%d %p (%file:%line\)- %m%n</pattern>
+                <charset>UTF-8</charset>
+            </encoder>
             <layout class="ch.qos.logback.classic.PatternLayout">
                 <pattern>${PATTERN}</pattern>
             </layout>
         </appender>
+        <logger name="com.light.springboot" level="warn" />
         <root level="warn">
             <appender-ref ref="PROD_FILE" />
         </root>

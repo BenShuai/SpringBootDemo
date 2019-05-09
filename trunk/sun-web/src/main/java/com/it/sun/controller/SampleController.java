@@ -1,6 +1,6 @@
 package com.it.sun.controller;
 
-import com.example.demo.config.BaseConfig;
+import com.it.sun.config.BaseConfig;
 import com.it.sun.entity.User;
 import com.it.sun.service.UserService;
 import com.it.sun.task.AnsyncTask;

@@ -44,6 +44,8 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+
+
     </dependencies>
     <!-- 添加spring-boot的maven插件 -->
     <build>
