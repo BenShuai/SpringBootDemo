@@ -1,0 +1,9 @@
+﻿先配置 generatorConfig.xml 里面的链接信息和需要生产的类的信息
+
+
+配置：<jdbcConnection> 标签 中的 数据库连接信息,地址，账号，密码
+
+配置：<table> 标签中的 tableName：表名   domainObjectName：生成的java类名
+
+
+然后执行脚本命令，语法在readme.txt文件中

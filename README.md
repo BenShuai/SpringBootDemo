@@ -43,3 +43,15 @@ controller类，任务类，配置类等
 
 在`\trunk\sun-common\src\main\java\com\it\common\task\quartz\QuartzManager.java`中定义了Quartz调度任务的添加删除启动等方法【最下面的main方法给出了调用案列】
 在`\trunk\sun-bean\src\main\java\com\it\sun\task\quartz\MyJob.java`中写了一个被Quartz调用的执行方法案列
+
+
+
+## mybatis-generator 是代码生成器
+
+先配置 generatorConfig.xml 里面的链接信息和需要生产的类的信息
+
+配置：<jdbcConnection> 标签 中的 数据库连接信息,地址，账号，密码
+
+配置：<table> 标签中的 tableName：表名   domainObjectName：生成的java类名
+
+然后执行脚本命令，语法在readme.txt文件中
