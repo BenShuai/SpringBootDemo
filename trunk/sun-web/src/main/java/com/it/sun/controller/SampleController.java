@@ -1,8 +1,6 @@
 package com.it.sun.controller;
 
 import com.it.sun.config.BaseConfig;
-import com.it.sun.entity.User;
-import com.it.sun.service.UserService;
 import com.it.sun.task.AnsyncTask;
 import com.it.common.uitl.ErrorCode;
 import com.it.sun.vo.ApiResult;
@@ -12,7 +10,6 @@ import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 //import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
