@@ -1,11 +1,14 @@
 package com.it.sun.mapper;
 
 import com.it.sun.entity.CkioskBrand;
-import com.it.sun.entity.CkioskBrandExample;
+import com.it.sun.entity.example.CkioskBrandExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
+@Mapper
 public interface CkioskBrandMapper {
     int countByExample(CkioskBrandExample example);
 
@@ -28,4 +31,6 @@ public interface CkioskBrandMapper {
     int updateByPrimaryKeySelective(CkioskBrand record);
 
     int updateByPrimaryKey(CkioskBrand record);
+
+    List<Map<String, String>> queryBa(String ids);
 }

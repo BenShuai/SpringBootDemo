@@ -89,7 +89,7 @@
     Image, BusinessScope, PerCapitaConsumption, BusinessHours, ContactNumber, Contact, 
     Fax, Site, Email, Wechat, QRCode, QRCodeImage, Other, ShowSDS, Order, Lan
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.it.sun.entity.CkioskBrandExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.it.sun.entity.example.CkioskBrandExample" >
     select
     <if test="distinct" >
       distinct
@@ -114,7 +114,7 @@
     delete from ckiosk_brand
     where Ckiosk_BrandID = #{ckioskBrandid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.it.sun.entity.CkioskBrandExample" >
+  <delete id="deleteByExample" parameterType="com.it.sun.entity.example.CkioskBrandExample" >
     delete from ckiosk_brand
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -283,7 +283,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.it.sun.entity.CkioskBrandExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.it.sun.entity.example.CkioskBrandExample" resultType="java.lang.Integer" >
     select count(*) from ckiosk_brand
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />

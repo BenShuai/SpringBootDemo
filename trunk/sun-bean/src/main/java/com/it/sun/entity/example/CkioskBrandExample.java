@@ -1,4 +1,4 @@
-package com.it.sun.entity;
+package com.it.sun.entity.example;
 
 import java.util.ArrayList;
 import java.util.List;
