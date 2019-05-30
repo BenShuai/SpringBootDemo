@@ -39,7 +39,7 @@ import org.apache.commons.httpclient.methods.PostMethod;
  *
  * @author 孙帅
  */
-public class CorewareUtil {
+public class BaseUtil {
     private static String encoding = "UTF-8";
 
     /**
@@ -50,7 +50,7 @@ public class CorewareUtil {
      * @throws Exception
      */
     public static String jsonCon(String jsonFileName) throws Exception {
-        CorewareUtil cu = new CorewareUtil();
+		BaseUtil cu = new BaseUtil();
         InputStream in = cu.getClass().getClassLoader().getResourceAsStream(jsonFileName);
         byte[] b = new byte[10240000];
         int n;
@@ -452,9 +452,9 @@ public class CorewareUtil {
 	 * @return
 	 */
 	public static String getEncode(String strS){
-		StringBuilder EncodePass=new StringBuilder(CorewareUtil.GetRmStr(5));
+		StringBuilder EncodePass=new StringBuilder(GetRmStr(5));
 		for (int i = 0; i < strS.length(); i++) {
-			EncodePass.append(strS.substring(i, i+1)+CorewareUtil.GetRmStr(5));
+			EncodePass.append(strS.substring(i, i+1)+GetRmStr(5));
 		}
 		return EncodePass.toString();
 	}
@@ -560,7 +560,7 @@ public class CorewareUtil {
 	 * @param ImgPath    原图
 	 */
 	public static void ImgWatermark(String ImgPath){
-		String IcoImgPath=CorewareUtil.class.getResource("/").getFile().toString()+"wm.png";//水印图片地址
+		String IcoImgPath=BaseUtil.class.getResource("/").getFile().toString()+"wm.png";//水印图片地址
 //		System.out.println(IcoImgPath);
 		OutputStream os = null;
 		try{
