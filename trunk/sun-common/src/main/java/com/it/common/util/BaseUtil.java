@@ -557,10 +557,10 @@ public class BaseUtil {
 	}
 	/**
 	 * 给图片加水印
+	 * @param IcoImgPath 水印图片地址
 	 * @param ImgPath    原图
 	 */
-	public static void ImgWatermark(String ImgPath){
-		String IcoImgPath=BaseUtil.class.getResource("/").getFile().toString()+"wm.png";//水印图片地址
+	public static void ImgWatermark(String IcoImgPath,String ImgPath){
 //		System.out.println(IcoImgPath);
 		OutputStream os = null;
 		try{
@@ -679,79 +679,12 @@ public class BaseUtil {
     /**
      * @param args
      */
-    public static void main(String[] args) {
-//    	ImgWatermark("Z:/0.jpg");//添加水印
-    	
-    	
+//    public static void main(String[] args) {
 //    	try{//调用本地的VBS文件
-//	    	String[] cpCmd  = new String[]{"wscript", "G:/孙帅C#软件/TextToVoice/TextToVoice/bin/Debug/sp/2017323/201732316409.vbs"};    
+//	    	String[] cpCmd  = new String[]{"wscript", "G:/软件/TextToVoice/TextToVoice/bin/Debug/sp/2017323/201732316409.vbs"};
 //	        Process process = Runtime.getRuntime().exec(cpCmd);    
 //	        // wait for the process end    
 //	        int val = process.waitFor();//val 是返回值  
 //    	}catch(Exception e){}
-    	
-    	
-    	
-//		System.out.println(CorewareUtil.GetRmStr(100));
-    	
-    	
-    	
-
-//		CorewareUtil cu=new CorewareUtil();
-//		//没有参数的请求方式
-//		String jsonStr=getHttpClentsJson("http://10.132.5.24:8080/objectserver/restapi/alerts/status?collist=ServerSerial");
-//		System.out.println(jsonStr);
-
-        //有参数的请求方式
-//		JSONArray params=new JSONArray();
-//		JSONObject param1=new JSONObject();
-//		param1.put("key", "name");
-//		param1.put("value", "sunshuai");
-//		params.add(param1);
-//		
-//		JSONObject param2=new JSONObject();
-//		param2.put("key", "password");
-//		param2.put("value", "123456");
-//		params.add(param2);
-//		
-//		String jsonStr=postHttpClentsJson("http://localhost:8888/som-mobile/comroom/getmenulist",params);
-//		System.out.println(jsonStr);
-    	
-    	
-//    	Map a=new HashMap();
-//    	a.put("bizEnName", "BIZ_1JZJY");
-//    	System.out.println(postHttpClentsJson("http://192.168.1.5/cw-cmdb/getaction/getBizConfig",a));
-
-    	
-    	
-//    	try{
-//    		CutZoomImage("Z:/IMG_20150810_190921.jpg","Z:/suo123456.jpg",640,366);
-//    	}catch(Exception ep){ep.printStackTrace();}
-    	
-//    	try{
-//	    	File audio=new File("Z:\\1.jpg");
-//	    	FileInputStream inputFile = new FileInputStream(audio);
-//	    	byte[] buffer = new byte[(int) audio.length()];
-//	    	inputFile.read(buffer);
-//			inputFile.close();
-//			String json = new String(Base64.encodeBase64(buffer));  
-//	        System.out.println(json);
-//
-//	        BufferedOutputStream bos = null;
-//	        FileOutputStream fos = null;
-//	        File file = null;
-//      	}catch(Exception ep){ep.printStackTrace();}
-
-       /* String json="{\"body\":{\"organ_id\":null,\"phone_number\":\"13580235004\",\"user_type\":\"1\",\"team_name\":\"稽核中心南部区域中心\",\"dept_type\":\"0\",\"rolenames\":\"测试审批角色A,区域中心经责部负责人,常规培训一级审批人,区域副职,测试一下,测,测试测试,6-19测试 ,常规部会签,新增审批角色B,testone,测试666\",\"isleader\":\"0\",\"user_name\":\"tt1\",\"company_name\":null,\"email\":\"tt1@ac.cntaiping.com\",\"real_name\":\"tt1\",\"approvalroleids\":\"208,84,141,64,283,282,281,280,279,268,242,218,217\",\"user_id\":\"20000\",\"team_id\":\"23\"},\"head1\":{\"api_id\":\"\",\"service_ip\":\"10.225.15.9:8080\",\"request_type\":\"02\",\"sender_code\":\"030001\",\"sendreqtime\":\"2017-06-28 10:16:00\",\"version\":\"1.0\"},\"head2\":{\"message\":\"登陆成功！\",\"isflag\":\"1\",\"action_type\":\"\",\"action_name\":\"AppLogin\",\"user_id\":\"20000\",\"pjcode\":\"\"}}";
-        JSONObject JA=JSONObject.fromObject(json);
-        JSONObject body=JA.optJSONObject("body");
-        JSONObject head2=JA.optJSONObject("head2");
-        String userId= body .optString("user_id");
-        userId=EncryptUtil.encryptAES(userId,"");
-        body.put("user_id",userId);
-        head2.put("user_id",userId);
-        String u=EncryptUtil.decrypt(userId,"");
-        System.out.println(JA.toString());*/
-        System.out.println(getEncode("asd1234-"));
-    }
+//    }
 }

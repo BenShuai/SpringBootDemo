@@ -25,19 +25,13 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>com.fasterxml.jackson.core</groupId>-->
-            <!--<artifactId>jackson-core</artifactId>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>com.fasterxml.jackson.core</groupId>-->
-            <!--<artifactId>jackson-annotations</artifactId>-->
-        <!--</dependency>-->
+
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
@@ -71,7 +65,8 @@
             <artifactId>commons-beanutils</artifactId>
         </dependency>
 
-        <!-- QZè°ƒåº¦éœ€è¦çš„åŒ… -->
+
+        <!-- QZµ÷¶ÈÐèÒªµÄ°ü -->
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz</artifactId>
@@ -80,6 +75,7 @@
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz-jobs</artifactId>
         </dependency>
+
 
         <dependency>
             <groupId>commons-httpclient</groupId>
@@ -94,6 +90,17 @@
             <version>${gson.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>4.3.8.RELEASE</version>
+        </dependency>
 
     </dependencies>
 

@@ -6,6 +6,8 @@ import java.util.Set;
 public interface  RedisService {
     boolean set(String key, String value) throws Exception;
 
+    boolean set(String key, String value,long validTime) throws Exception;
+
     String get(String key) throws Exception;
 
     boolean expire(String key, long expire) throws Exception;
@@ -17,6 +19,8 @@ public interface  RedisService {
     long lpush(String key, Object obj) throws Exception;
 
     long rpush(String key, Object obj) throws Exception;
+
+    List<Object> listRange(String key) throws Exception;
 
     void hmset(String key, Object obj) throws Exception;
 

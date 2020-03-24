@@ -24,6 +24,13 @@ public class RedisServiceImpl implements RedisService {
     @Autowired
     private RedisTemplate<String, ?> redisTemplate;
 
+    /**
+     * 存储字段，永久有效
+     * @param key
+     * @param value
+     * @return
+     * @throws Exception
+     */
     @Override
     public boolean set(final String key, final String value) throws Exception {
         Assert.hasText(key,"Key is not empty.");
@@ -38,6 +45,29 @@ public class RedisServiceImpl implements RedisService {
         return result;
     }
 
+    /**
+     * 存储字段，并且设置过期时间
+     * @param key
+     * @param value
+     * @param validTime
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public boolean set(String key, String value, long validTime) throws Exception {
+        Assert.hasText(key,"Key is not empty.");
+        boolean result = redisTemplate.execute(new RedisCallback<Boolean>() {
+            @Override
+            public Boolean doInRedis(RedisConnection connection) throws DataAccessException {
+                RedisSerializer<String> serializer = redisTemplate.getStringSerializer();
+                connection.set(serializer.serialize(key), serializer.serialize(value));
+                connection.expire(serializer.serialize(key),validTime);//设置过期时间
+                return true;
+            }
+        });
+        return result;
+    }
+    @Override
     public String get(final String key) throws Exception {
         Assert.hasText(key,"Key is not empty.");
         String result = redisTemplate.execute(new RedisCallback<String>() {
@@ -50,7 +80,7 @@ public class RedisServiceImpl implements RedisService {
         });
         return result;
     }
-
+    @Override
     public void del(final String key) throws Exception {
         Assert.hasText(key,"Key is not empty.");
 
@@ -63,8 +93,12 @@ public class RedisServiceImpl implements RedisService {
         });
     }
 
-
-
+    /**
+     * 设置某个KEY的过期时间，单位秒
+     * @param key
+     * @param expire
+     * @return
+     */
     @Override
     public boolean expire(final String key, long expire) {
         return redisTemplate.expire(key, expire, TimeUnit.SECONDS);
@@ -91,6 +125,13 @@ public class RedisServiceImpl implements RedisService {
         return null;
     }
 
+    /**
+     * 将一个或多个值 value 插入到列表 key 的表头
+     * @param key
+     * @param obj
+     * @return
+     * @throws Exception
+     */
     @Override
     public long lpush(final String key, Object obj)throws Exception {
         Assert.hasText(key,"Key is not empty.");
@@ -107,6 +148,13 @@ public class RedisServiceImpl implements RedisService {
         return result;
     }
 
+    /**
+     * 将一个或多个值 value 插入到列表 key 的表尾(最右边)。
+     * @param key
+     * @param obj
+     * @return
+     * @throws Exception
+     */
     @Override
     public long rpush(final String key, Object obj) throws Exception{
         Assert.hasText(key,"Key is not empty.");
@@ -121,6 +169,16 @@ public class RedisServiceImpl implements RedisService {
             }
         });
         return result;
+    }
+
+    /**
+     * 返回redis中List类型的key的值
+     * @param key
+     * @return
+     */
+    @Override
+    public List<Object> listRange(String key) throws Exception{
+        return (List<Object>)redisTemplate.opsForList().range(key, 0, -1);
     }
 
     @Override
@@ -161,6 +219,14 @@ public class RedisServiceImpl implements RedisService {
         });
     }
 
+    /**
+     * 返回哈希表 key 中，所有的域和值。
+     * @param key
+     * @param clz
+     * @param <T>
+     * @return
+     * @throws Exception
+     */
     @Override
     public<T> List<T> hmGetAll(String key, Class<T> clz) throws Exception{
         Assert.hasText(key,"Key is not empty.");
@@ -187,6 +253,12 @@ public class RedisServiceImpl implements RedisService {
         });
     }
 
+    /**
+     * 移除并返回列表 key 的头元素。
+     * @param key
+     * @return
+     * @throws Exception
+     */
     @Override
     public String lpop(final String key) throws Exception{
         Assert.hasText(key,"Key is not empty.");

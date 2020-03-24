@@ -4,6 +4,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
+/**
+ * 读取配置文件，在sun-common的resources中的base.properties文件
+ */
 @Configuration
 @PropertySource(value = "classpath:base.properties")
 @ConfigurationProperties(prefix = "base")

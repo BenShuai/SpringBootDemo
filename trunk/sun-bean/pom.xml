@@ -19,29 +19,39 @@
 
 
 	<dependencies>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>sun-common</artifactId>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>sun-common</artifactId>
 			<version>1.1.1-SNAPSHOT</version>
-        </dependency>
+		</dependency>
+
+		<!-- 数据库方面 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid-spring-boot-starter</artifactId>
+			<version>${alibaba.druid.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>${mybatis.spring.boot.version}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>${druid.version}</version>
 		</dependency>
 
 	</dependencies>
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<!-- 没有该配置，devtools 不生效 -->
-					<fork>true</fork>
-				</configuration>
-			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>

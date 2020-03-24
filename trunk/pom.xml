@@ -19,7 +19,7 @@
 		<module>sun-common</module>
 		<module>sun-bean</module>
 		<module>sun-web</module>
-		<module>sun-platform</module>
+		<!--<module>sun-platform</module>-->
 	</modules>
 </project>
  

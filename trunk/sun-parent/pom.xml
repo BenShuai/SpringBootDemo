@@ -46,7 +46,7 @@
         <swagger.version>1.7.0.RELEASE</swagger.version>
         <swagger.core.version>1.5.9</swagger.core.version>
         <swagger2.version>2.7.0</swagger2.version>
-        <jackson.version>2.9.9.3</jackson.version>
+        <jackson.version>2.10.3</jackson.version>
         <quartz.version>2.2.3</quartz.version>
         <junit.version>4.12</junit.version>
         <commons.beanutils.version>1.9.3</commons.beanutils.version>
@@ -58,13 +58,6 @@
     </properties>
     <dependencyManagement>
         <dependencies>
-            
-            <dependency>
-                <groupId>tk.mybatis</groupId>
-                <artifactId>mapper-spring-boot-starter</artifactId>
-                <version>${tk.version}</version>
-            </dependency>
-
 
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
@@ -89,14 +82,18 @@
             </dependency>
 
 
-
+            <dependency>
+                <groupId>commons-fileupload</groupId>
+                <artifactId>commons-fileupload</artifactId>
+                <version>${commons.fileupload.version}</version>
+            </dependency>
 
 
 
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Camden.SR7</version>
+                <version>Edgware.SR2</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -106,36 +103,13 @@
                 <version>${commons-lang3.version}</version>
             </dependency>
 
-            <!-- 数据库方面 -->
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>druid-spring-boot-starter</artifactId>
-                <version>${alibaba.druid.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.mybatis.spring.boot</groupId>
-                <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>${mybatis.spring.boot.version}</version>
-            </dependency>
-            <!--<dependency>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-starter-jdbc</artifactId>-->
-            <!--</dependency>-->
+
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper-spring-boot-starter</artifactId>
                 <version>${pagehelper.version}</version>
             </dependency>
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>druid</artifactId>
-                <version>${druid.version}</version>
-            </dependency>
+
             <dependency>
                 <groupId>log4j</groupId>
                 <artifactId>log4j</artifactId>
@@ -178,11 +152,6 @@
                 <groupId>commons-codec</groupId>
                 <artifactId>commons-codec</artifactId>
                 <version>${commons.codec.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.aliyun.oss</groupId>
-                <artifactId>aliyun-sdk-oss</artifactId>
-                <version>${aliyun.oss.version}</version>
             </dependency>
 
             <dependency>
@@ -256,10 +225,6 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
