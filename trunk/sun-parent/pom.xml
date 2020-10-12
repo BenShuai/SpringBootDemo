@@ -48,7 +48,7 @@
         <swagger2.version>2.7.0</swagger2.version>
         <jackson.version>2.10.3</jackson.version>
         <quartz.version>2.2.3</quartz.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <commons.beanutils.version>1.9.3</commons.beanutils.version>
         <easypoi.base.version>2.3.0.1</easypoi.base.version>
         <poi.ooxml.version>3.11-beta1</poi.ooxml.version>
